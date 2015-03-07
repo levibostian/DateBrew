@@ -1,9 +1,11 @@
-package co.perfectnight.perfectnight;
+package co.perfectnight.perfectnight.activity;
 
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import co.perfectnight.perfectnight.R;
+import com.parse.ParseObject;
 
 
 public class MainActivity extends ActionBarActivity {
@@ -12,6 +14,10 @@ public class MainActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_activity);
+
+        ParseObject parseTestObject = new ParseObject("TestObject");
+        parseTestObject.put("foo", "bar");
+        parseTestObject.saveInBackground();
     }
 
 

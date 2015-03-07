@@ -1,5 +1,6 @@
 #manually
 .idea/*
+*creds.*
 
 # Built application files
 *.apk
