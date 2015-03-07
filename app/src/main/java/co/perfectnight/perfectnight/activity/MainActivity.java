@@ -2,10 +2,16 @@ package co.perfectnight.perfectnight.activity;
 
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import co.perfectnight.perfectnight.R;
+import co.perfectnight.perfectnight.vo.User;
+import com.parse.GetCallback;
+import com.parse.ParseException;
 import com.parse.ParseObject;
+import com.parse.ParseQuery;
+import com.parse.SaveCallback;
 
 
 public class MainActivity extends ActionBarActivity {
@@ -15,11 +21,35 @@ public class MainActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_activity);
 
+        // Push up simple object.
         ParseObject parseTestObject = new ParseObject("TestObject");
         parseTestObject.put("foo", "bar");
         parseTestObject.saveInBackground();
-    }
 
+        // Nested object example.
+        final ParseObject nestedObject = new ParseObject("OuterNest");
+        ParseObject innerObject = new ParseObject("InnerObject");
+        nestedObject.put("testOuter", true);
+        innerObject.put("somethingInner", 10L);
+        nestedObject.put("Inner", innerObject);
+
+        final User user = new User();
+        nestedObject.saveInBackground(new SaveCallback() {
+            @Override
+            public void done(ParseException e) {
+                user.setParseObjectId(nestedObject.getObjectId());
+
+                // Retrieve data.
+                ParseQuery<ParseObject> query = ParseQuery.getQuery("OuterNest");
+                query.getInBackground(user.getParseObjectId(), new GetCallback<ParseObject>() {
+                    @Override
+                    public void done(ParseObject parseObject, ParseException e) {
+                        Log.d("perfectNight", parseObject.getParseObject("Inner") + "");
+                    }
+                });
+            }
+        });
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
