@@ -7,7 +7,9 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import co.perfectnight.perfectnight.R;
+import com.parse.LogInCallback;
 import com.parse.ParseException;
 import com.parse.ParseUser;
 import com.parse.SignUpCallback;
@@ -18,6 +20,8 @@ public class MainActivity extends ActionBarActivity {
     private EditText mEmailEditText;
     private EditText mPasswordEditText;
     private Button mSignUpButton;
+    private Button mLoginButton;
+    private TextView mErrorText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,12 +31,27 @@ public class MainActivity extends ActionBarActivity {
         mEmailEditText = (EditText) findViewById(R.id.email_edittext);
         mPasswordEditText = (EditText) findViewById(R.id.password_edittext);
         mSignUpButton = (Button) findViewById(R.id.sign_up_button);
+        mLoginButton = (Button) findViewById(R.id.login_button);
+        mErrorText = (TextView) findViewById(R.id.error_text);
+
         mSignUpButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 signUp(mEmailEditText.getText().toString(), mPasswordEditText.getText().toString());
+                clearErrors();
             }
         });
+
+        mLoginButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                login(mEmailEditText.getText().toString(), mPasswordEditText.getText().toString());
+            }
+        });
+    }
+
+    private void clearErrors() {
+        mErrorText.setText("");
     }
 
     private void signUp(String email, String password) {
@@ -46,6 +65,23 @@ public class MainActivity extends ActionBarActivity {
                 // go to first page of app.
             }
         });
+    }
+
+    private void login(String email, String password) {
+        ParseUser.logInInBackground(email, password, new LogInCallback() {
+            @Override
+            public void done(final ParseUser parseUser, ParseException e) {
+                if (parseUser != null) {
+                    // go to first page of app.
+                } else {
+                    setLoginError();
+                }
+            }
+        });
+    }
+
+    private void setLoginError() {
+        mErrorText.setText("Looks like you don't have an account. Try Sign up instead.");
     }
 
     @Override
