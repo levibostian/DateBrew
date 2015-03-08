@@ -66,7 +66,7 @@ public class PriceFragment extends Fragment {
         int id = item.getItemId();
 
         if (id == R.id.action_logout) {
-            getActivity().getFragmentManager().beginTransaction().replace(R.id.fragment_container, LoginFragment.newInstance()).commit();
+            getActivity().getFragmentManager().beginTransaction().replace(R.id.fragment_container, WelcomeFragment.newInstance()).commit();
             return true;
         }
 

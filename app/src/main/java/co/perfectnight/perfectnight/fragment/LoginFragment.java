@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.FrameLayout;
 import android.widget.TextView;
 import co.perfectnight.perfectnight.R;
 import com.parse.LogInCallback;
@@ -36,7 +37,7 @@ public class LoginFragment extends Fragment {
 
         mEmailEditText = (EditText) view.findViewById(R.id.email_edittext);
         mPasswordEditText = (EditText) view.findViewById(R.id.password_edittext);
-        mSignUpButton = (Button) view.findViewById(R.id.sign_up_button);
+        mSignUpButton = (Button) view.findViewById(R.id.signup_button);
         mLoginButton = (Button) view.findViewById(R.id.login_button);
         mErrorText = (TextView) view.findViewById(R.id.error_text);
 
@@ -97,5 +98,4 @@ public class LoginFragment extends Fragment {
     private void setLoginError() {
         mErrorText.setText("Looks like you don't have an account. Try Sign up instead.");
     }
-
 }
