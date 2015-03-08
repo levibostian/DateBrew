@@ -21,6 +21,7 @@
         android:textColor="@android:color/white"
         android:textSize="24sp"
         android:paddingTop="40dp"
+        android:paddingBottom="10dp"
         android:text="Sign In With"/>
 
     <LinearLayout

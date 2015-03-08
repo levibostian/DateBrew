@@ -3,6 +3,7 @@ package co.perfectnight.perfectnight.fragment;
 import android.app.Fragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v7.app.ActionBarActivity;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -28,6 +29,7 @@ public class PriceFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_price, container, false);
 
         setHasOptionsMenu(true);
+        showActionBar();
 
         mLowestPriceButton = (Button) view.findViewById(R.id.lowest_price_button);
         mMediumPriceButton = (Button) view.findViewById(R.id.medium_price_button);
@@ -72,4 +74,9 @@ public class PriceFragment extends Fragment {
 
         return super.onOptionsItemSelected(item);
     }
+
+    private void showActionBar() {
+        ((ActionBarActivity) getActivity()).getSupportActionBar().show();
+    }
+
 }

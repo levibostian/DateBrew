@@ -4,13 +4,14 @@ import android.app.Fragment;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v7.app.ActionBarActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.FrameLayout;
+import android.widget.ImageView;
 import android.widget.TextView;
 import co.perfectnight.perfectnight.R;
 import com.parse.LogInCallback;
@@ -22,8 +23,8 @@ public class LoginFragment extends Fragment {
 
     private EditText mEmailEditText;
     private EditText mPasswordEditText;
-    private Button mSignUpButton;
-    private Button mLoginButton;
+    private ImageView mSignUpButton;
+    private ImageView mLoginButton;
     private TextView mErrorText;
 
     public static LoginFragment newInstance() {
@@ -37,8 +38,8 @@ public class LoginFragment extends Fragment {
 
         mEmailEditText = (EditText) view.findViewById(R.id.email_edittext);
         mPasswordEditText = (EditText) view.findViewById(R.id.password_edittext);
-        mSignUpButton = (Button) view.findViewById(R.id.signup_button);
-        mLoginButton = (Button) view.findViewById(R.id.login_button);
+        mSignUpButton = (ImageView) view.findViewById(R.id.signup_button);
+        mLoginButton = (ImageView) view.findViewById(R.id.login_button);
         mErrorText = (TextView) view.findViewById(R.id.error_text);
 
         mSignUpButton.setOnClickListener(new View.OnClickListener() {
