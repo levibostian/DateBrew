@@ -1,11 +1,13 @@
 package co.perfectnight.perfectnight.fragment;
 
 import android.app.Fragment;
+import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -41,6 +43,7 @@ public class LoginFragment extends Fragment {
         mSignUpButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                hideKeyboard();
                 signUp(mEmailEditText.getText().toString(), mPasswordEditText.getText().toString());
                 clearErrors();
             }
@@ -49,11 +52,16 @@ public class LoginFragment extends Fragment {
         mLoginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                hideKeyboard();
                 login(mEmailEditText.getText().toString(), mPasswordEditText.getText().toString());
             }
         });
 
         return view;
+    }
+
+    private void hideKeyboard() {
+        ((InputMethodManager)getActivity().getSystemService(Context.INPUT_METHOD_SERVICE)).hideSoftInputFromWindow(mPasswordEditText.getWindowToken(), 0);
     }
 
     private void clearErrors() {
