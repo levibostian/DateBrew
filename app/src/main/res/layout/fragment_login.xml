@@ -4,15 +4,14 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background"
     tools:context=".MainActivity">
 
     <ImageView
         android:paddingTop="120dp"
-        android:src="@drawable/logo"
+        android:src="@drawable/datebrew_logo_dark"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingBottom="90dp"/>
+        android:paddingBottom="70dp"/>
 
     <EditText
         android:id="@+id/email_edittext"

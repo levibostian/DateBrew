@@ -1,26 +1,17 @@
 package co.perfectnight.perfectnight.fragment;
 
-import android.app.ActionBar;
 import android.app.Fragment;
-import android.content.Context;
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.ActionBarActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.inputmethod.InputMethodManager;
-import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.TextView;
 import android.widget.Toast;
-import android.widget.Toolbar;
 import co.perfectnight.perfectnight.R;
-import com.parse.LogInCallback;
-import com.parse.ParseException;
-import com.parse.ParseUser;
-import com.parse.SignUpCallback;
 
 public class WelcomeFragment extends Fragment {
 
@@ -51,7 +42,9 @@ public class WelcomeFragment extends Fragment {
         mEmailLoginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                getActivity().getFragmentManager().beginTransaction().replace(R.id.fragment_container, LoginFragment.newInstance()).commit();
+                getActivity().getFragmentManager().beginTransaction().setCustomAnimations(R.animator.slide_in_left,
+                                                                                          R.animator.slide_out_right,
+                                                                                          0,0).replace(R.id.fragment_container, LoginFragment.newInstance()).commit();
             }
         });
 
