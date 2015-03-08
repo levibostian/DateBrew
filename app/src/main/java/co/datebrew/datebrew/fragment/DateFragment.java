@@ -7,11 +7,16 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import co.datebrew.datebrew.R;
 
 public class DateFragment extends Fragment {
 
     private ImageView mDateImageView;
+    private ImageView mBookItButton;
+    private LinearLayout mBookItContainer;
+    private LinearLayout mBrewedContainer;
+
     private static final int DATE_BACK = R.drawable.date_card_back;
     private static final int DATE_FRONT = R.drawable.date_card;
     private boolean mIsDateCardFront = true;
@@ -26,10 +31,19 @@ public class DateFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_date, container, false);
 
         mDateImageView = (ImageView) view.findViewById(R.id.date_imageview);
+        mBookItButton = (ImageView) view.findViewById(R.id.book_it_button);
+        mBookItContainer = (LinearLayout) view.findViewById(R.id.book_it_container);
+        mBrewedContainer = (LinearLayout) view.findViewById(R.id.brewed_container);
         mDateImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 toggleDateDetails();
+            }
+        });
+        mBookItButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                bookDate();
             }
         });
 
@@ -39,6 +53,11 @@ public class DateFragment extends Fragment {
     private void toggleDateDetails() {
         mDateImageView.setImageResource(mIsDateCardFront ? DATE_BACK : DATE_FRONT);
         mIsDateCardFront = !mIsDateCardFront;
+    }
+
+    private void bookDate() {
+        mBookItContainer.setVisibility(View.GONE);
+        mBrewedContainer.setVisibility(View.VISIBLE);
     }
 
 }
