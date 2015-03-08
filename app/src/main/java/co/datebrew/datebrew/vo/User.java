@@ -1,4 +1,4 @@
-package co.perfectnight.perfectnight.vo;
+package co.datebrew.datebrew.vo;
 
 public class User {
     private String parseObjectId;

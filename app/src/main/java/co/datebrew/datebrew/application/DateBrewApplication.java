@@ -1,4 +1,4 @@
-package co.perfectnight.perfectnight.application;
+package co.datebrew.datebrew.application;
 
 import android.app.Application;
 import com.parse.Parse;
@@ -8,7 +8,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 
-public class PerfectNightApplication extends Application {
+public class DateBrewApplication extends Application {
 
     @Override
     public void onCreate() {

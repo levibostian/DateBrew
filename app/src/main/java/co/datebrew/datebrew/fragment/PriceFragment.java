@@ -1,4 +1,4 @@
-package co.perfectnight.perfectnight.fragment;
+package co.datebrew.datebrew.fragment;
 
 import android.app.Fragment;
 import android.os.Bundle;
@@ -11,7 +11,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import co.perfectnight.perfectnight.R;
+import co.datebrew.datebrew.R;
 
 public class PriceFragment extends Fragment {
 

@@ -1,8 +1,6 @@
-package co.perfectnight.perfectnight.fragment;
+package co.datebrew.datebrew.fragment;
 
 import android.app.Fragment;
-import android.app.FragmentManager;
-import android.app.FragmentTransaction;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.ActionBarActivity;
@@ -11,7 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.Toast;
-import co.perfectnight.perfectnight.R;
+import co.datebrew.datebrew.R;
 
 public class WelcomeFragment extends Fragment {
 

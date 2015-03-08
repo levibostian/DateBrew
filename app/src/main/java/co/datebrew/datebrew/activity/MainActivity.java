@@ -1,9 +1,9 @@
-package co.perfectnight.perfectnight.activity;
+package co.datebrew.datebrew.activity;
 
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
-import co.perfectnight.perfectnight.R;
-import co.perfectnight.perfectnight.fragment.WelcomeFragment;
+import co.datebrew.datebrew.R;
+import co.datebrew.datebrew.fragment.WelcomeFragment;
 
 public class MainActivity extends ActionBarActivity {
 
