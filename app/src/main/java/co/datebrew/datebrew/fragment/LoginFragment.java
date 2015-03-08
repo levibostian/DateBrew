@@ -95,6 +95,7 @@ public class LoginFragment extends Fragment {
     }
 
     private void setLoginError() {
-        mErrorText.setText("Looks like you don't have an account. Try Sign up instead.");
+        mErrorText.setText("Account not found. Sign up first.");
     }
+
 }

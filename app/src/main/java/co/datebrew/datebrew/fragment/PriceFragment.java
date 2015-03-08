@@ -59,7 +59,10 @@ public class PriceFragment extends Fragment {
     }
 
     private void showDateFragment(Fragment fragment) {
-        getActivity().getFragmentManager().beginTransaction().replace(R.id.fragment_container, fragment).commit();
+        getActivity().getFragmentManager()
+                     .beginTransaction()
+                     .replace(R.id.fragment_container, fragment)
+                     .addToBackStack(null).commit();
     }
 
     @Override
