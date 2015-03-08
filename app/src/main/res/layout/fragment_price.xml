@@ -11,27 +11,27 @@
         android:paddingTop="60dp"
         android:paddingBottom="20dp"
         android:gravity="center_horizontal"
-        android:text="Pick a date."/>
+        android:text="Pick Your Date."/>
 
     <ImageView
         android:id="@+id/lowest_price_button"
         android:padding="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:src="@drawable/money_button1"/>
+        android:src="@drawable/price_button1"/>
 
     <ImageView
         android:id="@+id/medium_price_button"
         android:padding="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:src="@drawable/money_button2"/>
+        android:src="@drawable/price_button2"/>
 
     <ImageView
         android:id="@+id/expensive_price_button"
         android:padding="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:src="@drawable/money_button3"/>
+        android:src="@drawable/price_button3"/>
 
 </LinearLayout>

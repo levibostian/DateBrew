@@ -39,23 +39,27 @@ public class PriceFragment extends Fragment {
         mLowestPriceButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // show lowest price option
+                showDateFragment(DateFragment.newInstance());
             }
         });
         mMediumPriceButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // show medium price option
+                showDateFragment(DateFragment.newInstance());
             }
         });
         mExpensivePriceButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // show expensive price option
+                showDateFragment(DateFragment.newInstance());
             }
         });
 
         return view;
+    }
+
+    private void showDateFragment(Fragment fragment) {
+        getActivity().getFragmentManager().beginTransaction().replace(R.id.fragment_container, fragment).commit();
     }
 
     @Override
