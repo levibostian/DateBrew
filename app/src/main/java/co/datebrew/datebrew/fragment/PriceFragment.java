@@ -11,13 +11,14 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import co.datebrew.datebrew.R;
 
 public class PriceFragment extends Fragment {
 
-    private Button mLowestPriceButton;
-    private Button mMediumPriceButton;
-    private Button mExpensivePriceButton;
+    private ImageView mLowestPriceButton;
+    private ImageView mMediumPriceButton;
+    private ImageView mExpensivePriceButton;
 
     public static PriceFragment newInstance() {
         return new PriceFragment();
@@ -31,9 +32,9 @@ public class PriceFragment extends Fragment {
         setHasOptionsMenu(true);
         showActionBar();
 
-        mLowestPriceButton = (Button) view.findViewById(R.id.lowest_price_button);
-        mMediumPriceButton = (Button) view.findViewById(R.id.medium_price_button);
-        mExpensivePriceButton = (Button) view.findViewById(R.id.expensive_price_button);
+        mLowestPriceButton = (ImageView) view.findViewById(R.id.lowest_price_button);
+        mMediumPriceButton = (ImageView) view.findViewById(R.id.medium_price_button);
+        mExpensivePriceButton = (ImageView) view.findViewById(R.id.expensive_price_button);
 
         mLowestPriceButton.setOnClickListener(new View.OnClickListener() {
             @Override
